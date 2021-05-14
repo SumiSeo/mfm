@@ -5,9 +5,23 @@
 
 * {
   box-sizing: border-box;
+  cursor: none;
+  // cursor: url("/images/cursor.png"), auto;
+}
+
+.cursor {
+  width: 2em;
+  height: 2em;
+  background-color: $navy;
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.8;
+  transition-duration: 200ms;
+  transition-timing-function: ease-out;
 }
 
 body {
+  width: auto;
   font-family: "Newsreader", serif;
   display: flex;
   justify-content: center;
@@ -17,7 +31,7 @@ body {
 header {
   padding-left: 5%;
   padding-top: 1em;
-  width: 90%;
+  width: auto;
   height: 250px;
   font-size: 40px;
   line-height: 1.2;
@@ -53,9 +67,9 @@ main {
 .gringotts {
   display: flex;
   flex-direction: column;
-  width: 95%;
+  width: auto;
   margin: 2.5em 2em;
-  height: 30em;
+  height: 33em;
   margin-top: 0.5em;
   border-radius: 1.4em;
   border: 0.03em solid black;
@@ -66,6 +80,7 @@ main {
 }
 
 .girngotts__header {
+  width: auto;
   padding: 2em 3em;
   display: flex;
   justify-content: space-between;
@@ -75,24 +90,41 @@ main {
     border-radius: 2.4em;
     padding-bottom: 0.1em;
     width: 7em;
-    color: #130f40;
+    color: $navy;
     border-bottom: 0.04em solid #30336b;
   }
 }
 
 .gringotts__main {
   display: flex;
-  padding: 0.5em 3em;
+  padding: 0.5em 4em;
+  width: auto;
   justify-content: space-between;
   h2 {
     font-size: 1.2em;
     margin-bottom: 0.4em;
-    background-color: #130f40;
+    background-color: $navy;
     color: white;
     span {
       font-size: 0.8em;
-      color: #f6e58d;
+      color: $green;
     }
+  }
+}
+
+.gringotts__summary {
+  font-size: 1.3em;
+  margin-top: 0.7em;
+  display: flex;
+  align-items: center;
+  h4 {
+    margin-right: 0.3em;
+    color: $green;
+    border-radius: 0.4em;
+    padding: 0.2em;
+  }
+  span {
+    margin-right: 2em;
   }
 }
 
@@ -103,17 +135,22 @@ main {
   overflow: scroll;
 }
 
+@media screen and (max-width: 1280px) {
+  .gringotts {
+    display: none;
+  }
+}
 .gringotts__movements::-webkit-scrollbar {
-  width: 0.7em;
+  width: 0.8em;
   border-radius: 0.4em;
 }
 
 .gringotts__movements::-webkit-scrollbar-thumb {
-  background-color: #130f40;
+  background-color: $green;
 }
 
 .gringotts__movements::-webkit-scrollbar-track {
-  background-color: #353b48;
+  background-color: $grey;
 }
 
 .movement {
@@ -123,7 +160,7 @@ main {
   grid-template-columns: 1fr 1.5fr 0.5fr;
   align-items: center;
   .movement__status__deposit {
-    background-color: #9c88ff;
+    background-color: $purple;
     width: 6em;
     height: 2em;
     text-align: center;
@@ -136,7 +173,7 @@ main {
     font-style: italic;
   }
   .movement__status__withdrawal {
-    background-color: #e84118;
+    background-color: $red;
     width: 6em;
     height: 2em;
     text-align: center;
@@ -149,16 +186,16 @@ main {
 .gringotts__right {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 .gringotts__box {
-  border: 0.05em #130f40 solid;
+  border: 0.05em $navy solid;
   height: 8em;
   width: 20em;
 
   h5 {
     font-size: 1.3em;
-    color: #130f40;
+    color: $navy;
     margin: 1em 1.4em;
   }
 }
@@ -174,8 +211,8 @@ main {
     outline: none;
   }
   .input__button {
-    background-color: #353b48;
-    border: 0.05em #130f40 solid;
+    background-color: $grey;
+    border: 0.05em $navy solid;
     cursor: pointer;
     outline: none;
     width: 3.5em;

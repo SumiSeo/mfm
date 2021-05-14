@@ -1,3 +1,4 @@
+const cursor = document.querySelector(".cursor");
 const first = document.querySelector(".first");
 const bank = document.querySelector(".gringotts");
 const gringottsMovements = document.querySelector(".gringotts__movements");
@@ -6,7 +7,13 @@ const inputSavings = document.querySelector(".input__text--savings");
 const inputExpenses = document.querySelector(".input__text--expenses");
 const savingsbutton = document.querySelector(".input__button--savings");
 const expensebutton = document.querySelector(".input__button--expenses");
+const summaryPlus = document.querySelector(".gringotts__summary--plus");
+const summaryMinus = document.querySelector(".gringotts__summary--minus");
 
+
+document.addEventListener("mousemove", function(e){
+    cursor.setAttribute("style", "top: "+e.pageY+"px; left: "+e.pageX+"px;");
+})
 
 const handleFirst = function(){
     bank.classList.toggle("visible")
@@ -40,6 +47,16 @@ const displaymovements =function(movement) {
 
 displaymovements(sumi.gringottsMovements);
 
+const displaySummary =function(movement){
+    const summary = movement.filter(mov => mov>0).reduce((acc,cur) => acc+cur,0);;
+    summaryPlus.textContent = summary;
+    const summary2 = movement.filter(mov => mov<0).reduce((acc,cur) => acc+cur,0);
+    summaryMinus.textContent = summary2;
+}
+
+
+
+displaySummary(sumi.gringottsMovements);
 
 const displayBalance = function(sum){
     const balance = sum.reduce(function(acc,cur){ return acc+cur},0)
@@ -57,6 +74,7 @@ const handleSavingsButton = function(e){
     sumi.gringottsMovements.push(amount);
     displayBalance(sumi.gringottsMovements);
     displaymovements(sumi.gringottsMovements);
+    displaySummary(sumi.gringottsMovements);
     inputSavings.value='';
     }
 }
@@ -68,6 +86,7 @@ const handleExpensesButton = function(e) {
     sumi.gringottsMovements.push(amount);
     displayBalance(sumi.gringottsMovements);
     displaymovements(sumi.gringottsMovements);
+    displaySummary(sumi.gringottsMovements);
     inputExpenses.value='';
     }
 }
