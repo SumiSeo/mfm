@@ -1,0 +1,185 @@
+@import url("https://fonts.googleapis.com/css2?family=B612+Mono&family=DM+Serif+Display:ital@0;1&display=swap");
+@import "_variables";
+@import "_elements";
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:wght@300&@500&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Newsreader", serif;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+header {
+  padding-left: 5%;
+  padding-top: 1em;
+  width: 90%;
+  height: 250px;
+  font-size: 40px;
+  line-height: 1.2;
+  margin-bottom: 0.3em;
+}
+
+main {
+  width: 95%;
+  padding-left: 5%;
+}
+
+.table__box {
+  &:first-child {
+    font-size: 14px;
+    color: red;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+  display: grid;
+  grid-template-columns: 0.6fr 2fr 3fr 0.3fr;
+  padding: 15px 0px;
+  border-bottom: 1px solid black;
+  font-size: 18px;
+  cursor: pointer;
+  .table__security {
+    color: red;
+  }
+  &:hover {
+    font-style: italic;
+  }
+}
+
+.gringotts {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  margin: 2.5em 2em;
+  height: 30em;
+  margin-top: 0.5em;
+  border-radius: 1.4em;
+  border: 0.03em solid black;
+}
+
+.visible {
+  display: none;
+}
+
+.girngotts__header {
+  padding: 2em 3em;
+  display: flex;
+  justify-content: space-between;
+  h3 {
+    font-size: 1.7em;
+    text-align: center;
+    border-radius: 2.4em;
+    padding-bottom: 0.1em;
+    width: 7em;
+    color: #130f40;
+    border-bottom: 0.04em solid #30336b;
+  }
+}
+
+.gringotts__main {
+  display: flex;
+  padding: 0.5em 3em;
+  justify-content: space-between;
+  h2 {
+    font-size: 1.2em;
+    margin-bottom: 0.4em;
+    background-color: #130f40;
+    color: white;
+    span {
+      font-size: 0.8em;
+      color: #f6e58d;
+    }
+  }
+}
+
+.gringotts__movements {
+  width: 40em;
+  height: 20em;
+  border: 0.03em solid black;
+  overflow: scroll;
+}
+
+.gringotts__movements::-webkit-scrollbar {
+  width: 0.7em;
+  border-radius: 0.4em;
+}
+
+.gringotts__movements::-webkit-scrollbar-thumb {
+  background-color: #130f40;
+}
+
+.gringotts__movements::-webkit-scrollbar-track {
+  background-color: #353b48;
+}
+
+.movement {
+  height: 3em;
+  margin: 0.6em 1em;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 0.5fr;
+  align-items: center;
+  .movement__status__deposit {
+    background-color: #9c88ff;
+    width: 6em;
+    height: 2em;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+  .movement__context {
+    font-style: italic;
+  }
+  .movement__status__withdrawal {
+    background-color: #e84118;
+    width: 6em;
+    height: 2em;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+}
+.gringotts__right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.gringotts__box {
+  border: 0.05em #130f40 solid;
+  height: 8em;
+  width: 20em;
+
+  h5 {
+    font-size: 1.3em;
+    color: #130f40;
+    margin: 1em 1.4em;
+  }
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  .input__text {
+    width: 16em;
+    height: 3em;
+    outline: none;
+  }
+  .input__button {
+    background-color: #353b48;
+    border: 0.05em #130f40 solid;
+    cursor: pointer;
+    outline: none;
+    width: 3.5em;
+    height: 3em;
+    color: white;
+  }
+}

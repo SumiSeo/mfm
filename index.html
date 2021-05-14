@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="dist/css/reset.css" />
+    <link rel="stylesheet" href="dist/css/styles.css" />
+    <title>Donica coding</title>
+  </head>
+  <body>
+    <header>
+      Sumi Seo is a fullstack developer and a big fan of Harry Potter. This site
+      is twinkled with little bit of magic for muggles.
+    </header>
+    <main>
+      <div clas="table__container">
+        <div class="table__box">
+          <div class="table__year"><span>Year</span></div>
+          <div class="table__title"><span>Client</span></div>
+          <div class="table__info">
+            <span>Info</span>
+          </div>
+          <div class="table__security">
+            <span></span>
+          </div>
+        </div>
+
+        <!--Here starats all the lists-->
+        <div class="table__box first">
+          <div class="table__year"><span>2021</span></div>
+          <div class="table__title"><span>Gringotts Wizarding Bank</span></div>
+          <div class="table__info">
+            <span>This is a small note when she spends muggle money.</span>
+          </div>
+          <div class="table__security">
+            <span><i class="fas fa-coins"></i></i></span>
+          </div>
+        </div>
+        <!--GRINGOTTS WIZARD BANK-->
+        <div class="gringotts visible">
+          <div class="girngotts__header">
+            <h3 class="gringotts__current">Current Balance</h3>
+            <h3 class="gringotts__balance">40000</h3>
+          </div>
+          <div class="gringotts__main">
+            <div class="gringotts__left">
+              <h2 class="gringotts__movement__title">Movements<span> 💸 Here you could check all the money comes and goes</span></h2>
+              <div class="gringotts__movements">
+                <div class="movement">
+                  <span class="movement__status__deposit movement__status__withdrawal">Deposit</span>
+                  <span class="movement__context">She bought a coffee</span>
+                  <span class="movement__money">3200</span>
+                </div>
+              </div>
+            </div>
+            <div class="gringotts__right">
+              <div class="gringotts__box">
+                <h5>Savings</h5>
+                <div class="input input__savings">
+                  <form>
+                  <input type ="number" step = "1000" class="input__text input__text--savings"/>
+                  <button class="input__button input__button--savings">&rarr;</button>
+                </form>
+                              </div>
+              </div>
+              <div class="gringotts__box">
+                <h5>Expenses</h5>
+                <div class="input input__expenses">
+                  <form>
+                  <input type ="number" step = "1000" class="input__text input__text--expenses" />
+                  <button class="input__button input__button--expenses">&rarr;</button>
+                </form>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+        <!--Here starats second list-->
+        <div class="table__box">
+          <div class="table__year"><span>2019</span></div>
+          <div class="table__title"><span>Air Bnb</span></div>
+          <div class="table__info">
+            <span>An exploration in marketing destinations desirable</span>
+          </div>
+          <div class="table__security">
+            <span><i class="far fa-eye"></i></span>
+          </div>
+        </div>
+        <div class="table__box">
+          <div class="table__year"><span>2018</span></div>
+          <div class="table__title"><span>Condé nest Traveler</span></div>
+          <div class="table__info">
+            <span>Investigative journalisme meet digital storytelling</span>
+          </div>
+          <div class="table__security">
+            <span><i class="far fa-eye"></i></span>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script
+      src="https://kit.fontawesome.com/6478f529f2.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
