@@ -5,7 +5,6 @@
 
 * {
   box-sizing: border-box;
-  cursor: none;
   // cursor: url("/images/cursor.png"), auto;
 }
 
@@ -68,8 +67,17 @@ main {
   display: flex;
   flex-direction: column;
   width: auto;
-  margin: 2.5em 2em;
   height: 33em;
+  margin: 2.5em 2em;
+  margin-top: 0.5em;
+  border-radius: 1.4em;
+  border: 0.03em solid black;
+}
+
+.sortingHat {
+  width: auto;
+  height: 33em;
+  margin: 2.5em 2em;
   margin-top: 0.5em;
   border-radius: 1.4em;
   border: 0.03em solid black;

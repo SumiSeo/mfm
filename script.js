@@ -1,6 +1,8 @@
 const cursor = document.querySelector(".cursor");
 const first = document.querySelector(".first");
 const bank = document.querySelector(".gringotts");
+const hat = document.querySelector(".sortingHat");
+const second = document.querySelector(".second");
 const gringottsMovements = document.querySelector(".gringotts__movements");
 const gringottsBalance = document.querySelector(".gringotts__balance")
 const inputSavings = document.querySelector(".input__text--savings");
@@ -11,15 +13,20 @@ const summaryPlus = document.querySelector(".gringotts__summary--plus");
 const summaryMinus = document.querySelector(".gringotts__summary--minus");
 
 
-document.addEventListener("mousemove", function(e){
-    cursor.setAttribute("style", "top: "+e.pageY+"px; left: "+e.pageX+"px;");
-})
+// document.addEventListener("mousemove", function(e){
+//     cursor.setAttribute("style", "top: "+e.pageY+"px; left: "+e.pageX+"px;");
+// })
 
 const handleFirst = function(){
     bank.classList.toggle("visible")
 };
 
+const handleSecond = function(){
+    hat.classList.toggle("visible")
+};
+
 first.addEventListener("click", handleFirst);
+second.addEventListener("click", handleSecond);
 
 
 
