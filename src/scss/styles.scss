@@ -228,3 +228,53 @@ main {
     color: white;
   }
 }
+
+.sortinghat__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  margin: 5em auto;
+  .sortinghat__name {
+    font-size: 1.7em;
+    outline: none;
+    text-align: center;
+    padding: 0.3em;
+    border: none;
+    border-bottom: 0.06em $navy solid;
+    margin-bottom: 1.4em;
+    &::placeholder {
+      opacity: 0.4;
+      color: $red;
+    }
+  }
+  .sortinghat__check {
+    font-size: 0.9em;
+    padding: 1em;
+    background-color: $navy;
+    outline: none;
+    border: none;
+    color: $green;
+    cursor: pointer;
+    margin-bottom: 1.3em;
+    border-radius: 0.7em;
+  }
+  .sortinghat__result {
+    margin-top: 0.7em;
+    font-size: 3em;
+    font-style: italic;
+  }
+  .sortinghat__sort {
+    font-size: 0.9em;
+    text-transform: uppercase;
+    padding: 1em;
+    background-color: $navy;
+    outline: none;
+    border: none;
+    color: $purple;
+    cursor: pointer;
+    margin-top: 4em;
+    border-radius: 0.7em;
+  }
+}

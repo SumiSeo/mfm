@@ -11,6 +11,10 @@ const savingsbutton = document.querySelector(".input__button--savings");
 const expensebutton = document.querySelector(".input__button--expenses");
 const summaryPlus = document.querySelector(".gringotts__summary--plus");
 const summaryMinus = document.querySelector(".gringotts__summary--minus");
+const inputSortingHat = document.querySelector(".sortinghat__name");
+const btnSortingCheck = document.querySelector(".sortinghat__check");
+const sortingHatResult = document.querySelector(".sortinghat__result");
+const btnSortingSort = document.querySelector(".sortinghat__sort");
 
 
 // document.addEventListener("mousemove", function(e){
@@ -100,3 +104,40 @@ const handleExpensesButton = function(e) {
 
 savingsbutton.addEventListener("click", handleSavingsButton);
 expensebutton.addEventListener("click", handleExpensesButton);
+
+
+
+
+
+const houses = ['Gryffindor', 'Ravenclaw', 'Hufflepuff', 'Slytherin' ];
+
+let currentName;
+
+const handleSortingCheck = function(e){
+    e.preventDefault();
+    currentName = inputSortingHat.value;
+    const lowerName = currentName.toLowerCase().slice(0,1);
+    console.log(lowerName);
+    if (lowerName ==='h' || lowerName ==='s' || lowerName ==='y' ||lowerName ==='r'  ) {
+        sortingHatResult.textContent = `You are ${houses[0]} 🦁 !`
+        inputSortingHat.value = '';
+        inputSortingHat.blur();
+    }
+        else if (lowerName ==='a' || lowerName ==='b' || lowerName ==='m' ) {
+            sortingHatResult.textContent = `You are ${houses[1]} 🦅 !`
+            inputSortingHat.value = '';
+            inputSortingHat.blur();
+        } else if (lowerName ==='c' || lowerName ==='k' || lowerName ==='f' ) {
+            sortingHatResult.textContent = `You are ${houses[2]} 🦡 !`
+            inputSortingHat.value = '';
+            inputSortingHat.blur();
+        } else {
+            sortingHatResult.textContent = `You are ${houses[3]} 🐍 !`
+            inputSortingHat.value = '';
+            inputSortingHat.blur();
+        }
+   
+};
+
+
+btnSortingCheck.addEventListener("click", handleSortingCheck);
