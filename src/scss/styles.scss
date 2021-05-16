@@ -83,10 +83,6 @@ main {
   border: 0.03em solid black;
 }
 
-.visible {
-  display: none;
-}
-
 .girngotts__header {
   width: auto;
   padding: 2em 3em;
@@ -303,4 +299,8 @@ main {
     border-bottom: 0.05em solid $red;
     padding: 0.4em 0;
   }
+}
+
+.visible {
+  display: none;
 }

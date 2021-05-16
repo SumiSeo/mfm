@@ -1,8 +1,12 @@
 const cursor = document.querySelector(".cursor");
 const first = document.querySelector(".first");
+const second = document.querySelector(".second");
+const third = document.querySelector(".third");
 const bank = document.querySelector(".gringotts");
 const hat = document.querySelector(".sortingHat");
-const second = document.querySelector(".second");
+const tmDiary = document.querySelector(".tm__diary");
+
+
 const gringottsMovements = document.querySelector(".gringotts__movements");
 const gringottsBalance = document.querySelector(".gringotts__balance")
 const btnGringottsSort = document.querySelector(".gringotts__sort");
@@ -12,12 +16,13 @@ const savingsbutton = document.querySelector(".input__button--savings");
 const expensebutton = document.querySelector(".input__button--expenses");
 const summaryPlus = document.querySelector(".gringotts__summary--plus");
 const summaryMinus = document.querySelector(".gringotts__summary--minus");
+
+
 const inputSortingHat = document.querySelector(".sortinghat__name");
 const btnSortingCheck = document.querySelector(".sortinghat__check");
 const sortingHatResult = document.querySelector(".sortinghat__result");
 const btnSortingSort = document.querySelector(".sortinghat__sort");
-const tmDiary = document.querySelector(".tm__diary");
-const third = document.querySelector(".third");
+
 const tmDiaryToday = document.querySelector(".tm__diary__today");
 
 
@@ -33,10 +38,9 @@ const handleSecond = function () {
     hat.classList.toggle("visible");
 };
 
-const handleThird = function(){
+const handleThird = function () {
     tmDiary.classList.toggle("visible");
-    
-}
+};
 
 first.addEventListener("click", handleFirst);
 second.addEventListener("click", handleSecond);
@@ -119,10 +123,6 @@ expensebutton.addEventListener("click", handleExpensesButton);
 const houses = ['Gryffindor', 'Ravenclaw', 'Hufflepuff', 'Slytherin'];
 
 
-
-
-
-
 let currentName;
 const handleSortingCheck = function (e) {
     e.preventDefault();
@@ -149,7 +149,6 @@ const handleSortingCheck = function (e) {
     }
 
 };
-
 
 btnSortingCheck.addEventListener("click", handleSortingCheck);
 
