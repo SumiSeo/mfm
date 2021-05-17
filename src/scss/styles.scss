@@ -295,9 +295,29 @@ main {
     border-bottom: 0.05em solid $red;
     padding: 0.4em;
   }
-  .tm__diary__content {
+  .tm__diary__letter {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(10, 1.9em);
     border-bottom: 0.05em solid $red;
-    padding: 0.4em 0;
+  }
+  .tm__diary__content {
+    display: flex;
+    align-items: center;
+    height: 1.9em;
+  }
+
+  .tm__diary__animation {
+    animation: fadeIn ease 2s;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 

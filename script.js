@@ -24,7 +24,12 @@ const sortingHatResult = document.querySelector(".sortinghat__result");
 const btnSortingSort = document.querySelector(".sortinghat__sort");
 
 const tmDiaryToday = document.querySelector(".tm__diary__today");
-
+const harrySpeaking = document.querySelector(".tm__diary--harry");
+const tmSpeaking = document.querySelector(".tm__diary--tm");
+const harrySpeaking2 = document.querySelector(".tm__diary--harry2");
+const tmSpeaking2 = document.querySelector(".tm__diary--tm2");
+const tmDiaryContent = document.querySelectorAll(".tm__diary__content")
+const tmDiaryLetter= document.querySelector(".tm__diary__letter")
 
 // document.addEventListener("mousemove", function(e){
 //     cursor.setAttribute("style", "top: "+e.pageY+"px; left: "+e.pageX+"px;");
@@ -155,15 +160,55 @@ btnSortingCheck.addEventListener("click", handleSortingCheck);
 
 
 
-const today = new Date();
-console.log(today);
-const timeOptions = {
+// setInterval(( ) => tmDiaryToday.textContent  = timeFinal, 1000)
+// tmDiaryToday.textContent
+// tmDiaryToday.textContent  = timeFi
+
+const displayTime = function(){
+    const today = new Date();
+    const timeOptions = {
     hour : 'numeric',
     minute : 'numeric',
     day : 'numeric',
     month : 'long',
     year: 'numeric',
     weekday : 'long',
-};
+    second: 'numeric'
+    };
 
-tmDiaryToday.textContent = new Intl.DateTimeFormat("en-GB", timeOptions).format(today);
+    const timeFinal= new Intl.DateTimeFormat("en-GB", timeOptions).format(today);
+    tmDiaryToday.textContent  = timeFinal;
+}
+
+
+setInterval(displayTime, 1000)
+
+
+
+//Harry speaking
+harrySpeaking.innerHTML='';
+tmSpeaking.innerHTML='';
+harrySpeaking2.innerHTML='';
+tmSpeaking2.innerHTML='';
+setTimeout(function(){
+    harrySpeaking.textContent= 'My name is Harry Potter.';
+    harrySpeaking.classList.add("tm__diary__animation")
+},2000);
+
+
+setTimeout(function() {
+    tmSpeaking.textContent= "hello Harry Potter, my name is Tom Riddle.";
+    tmSpeaking.classList.add("tm__diary__animation")
+
+},5000);
+
+setTimeout(function(){
+    harrySpeaking2.textContent= '...Do you know anything about the chamber of secrets?';
+    harrySpeaking2.classList.add("tm__diary__animation")
+},7000);
+
+setTimeout(function() {
+    tmSpeaking2.textContent= "Yes.";
+    tmSpeaking2.classList.add("tm__diary__animation")
+
+},9000);
