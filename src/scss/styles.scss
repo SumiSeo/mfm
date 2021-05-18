@@ -336,22 +336,24 @@ main {
     margin: 2em auto;
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
   }
 }
 
+.hermione__speaking {
+  font-size: 1.4em;
+}
+
 .hermione__template {
-  padding: 0.5em;
   width: auto;
-  height: 70vh;
+  height: 60vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   background-color: $navy;
   .hermione__line {
-    padding: 0.8em;
+    padding: 0.2em;
     color: $navy;
-    background-color: white;
   }
 }
 
