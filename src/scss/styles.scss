@@ -324,3 +324,51 @@ main {
 .visible {
   display: none;
 }
+
+.library__hermione {
+  width: auto;
+  height: 33em;
+  margin: 2.5em 2em;
+  margin-top: 0.5em;
+  border-radius: 1.4em;
+  border: 0.03em solid black;
+  .hermione__container {
+    margin: 2em auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+.hermione__template {
+  padding: 0.5em;
+  width: auto;
+  height: 70vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  background-color: $navy;
+  .hermione__line {
+    padding: 0.8em;
+    color: $navy;
+    background-color: white;
+  }
+}
+
+.hermione__button {
+  outline: none;
+  background-color: $green;
+  border: none;
+  padding: 0.4em;
+  border: 0.05em solid $navy;
+  cursor: pointer;
+}
+
+.hermione__input {
+  outline: none;
+  background-color: $green;
+  border: none;
+  padding: 0.4em;
+  border: 0.05em solid $navy;
+  color: white;
+}

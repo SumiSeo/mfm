@@ -2,9 +2,11 @@ const cursor = document.querySelector(".cursor");
 const first = document.querySelector(".first");
 const second = document.querySelector(".second");
 const third = document.querySelector(".third");
+const fourth = document.querySelector(".fourth");
 const bank = document.querySelector(".gringotts");
 const hat = document.querySelector(".sortingHat");
 const tmDiary = document.querySelector(".tm__diary");
+const libraryHermione = document.querySelector(".library__hermione")
 
 
 const gringottsMovements = document.querySelector(".gringotts__movements");
@@ -28,8 +30,14 @@ const harrySpeaking = document.querySelector(".tm__diary--harry");
 const tmSpeaking = document.querySelector(".tm__diary--tm");
 const harrySpeaking2 = document.querySelector(".tm__diary--harry2");
 const tmSpeaking2 = document.querySelector(".tm__diary--tm2");
+const harrySpeaking3 = document.querySelector(".tm__diary--harry3");
+const tmSpeaking3 = document.querySelector(".tm__diary--tm3");
 const tmDiaryContent = document.querySelectorAll(".tm__diary__content")
 const tmDiaryLetter= document.querySelector(".tm__diary__letter")
+
+const btnHermione = document.querySelector(".hermione__button");
+const inputHermione = document.querySelector(".hermione__input")
+const lineHermione =document.querySelector(".hermione__line")
 
 // document.addEventListener("mousemove", function(e){
 //     cursor.setAttribute("style", "top: "+e.pageY+"px; left: "+e.pageX+"px;");
@@ -47,9 +55,14 @@ const handleThird = function () {
     tmDiary.classList.toggle("visible");
 };
 
+const handleFourth = function () {
+    libraryHermione.classList.toggle("visible");
+};
+
 first.addEventListener("click", handleFirst);
 second.addEventListener("click", handleSecond);
 third.addEventListener("click", handleThird);
+fourth.addEventListener("click", handleFourth);
 
 
 
@@ -190,6 +203,8 @@ harrySpeaking.innerHTML='';
 tmSpeaking.innerHTML='';
 harrySpeaking2.innerHTML='';
 tmSpeaking2.innerHTML='';
+harrySpeaking3.innerHTML='';
+tmSpeaking3.innerHTML='';
 setTimeout(function(){
     harrySpeaking.textContent= 'My name is Harry Potter.';
     harrySpeaking.classList.add("tm__diary__animation")
@@ -212,3 +227,31 @@ setTimeout(function() {
     tmSpeaking2.classList.add("tm__diary__animation")
 
 },9000);
+
+setTimeout(function(){
+    harrySpeaking3.textContent= 'Can you tell me ?';
+    harrySpeaking3.classList.add("tm__diary__animation")
+},11000);
+
+setTimeout(function() {
+    tmSpeaking3.textContent= "No.";
+    tmSpeaking3.classList.add("tm__diary__animation")
+
+},13000);
+
+
+
+///////////////////////////////
+//Hermione
+let words=[];
+
+btnHermione.addEventListener("click", function(e){
+    e.preventDefault();
+    console.log("clicked")
+    const word = inputHermione.value;
+    if(!word) return;
+    words.push(word);
+    console.log(words);
+    inputHermione.value = '';
+    lineHermione.textContent = words;
+})
