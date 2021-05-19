@@ -37,7 +37,8 @@ const tmDiaryLetter= document.querySelector(".tm__diary__letter")
 
 const btnHermione = document.querySelector(".hermione__button");
 const inputHermione = document.querySelector(".hermione__input")
-const lineHermione =document.querySelector(".hermione__line")
+const lineHermione =document.querySelectorAll(".hermione__line")
+const linesHermione = document.querySelector(".hermione__template");
 
 // document.addEventListener("mousemove", function(e){
 //     cursor.setAttribute("style", "top: "+e.pageY+"px; left: "+e.pageX+"px;");
@@ -169,6 +170,10 @@ const handleSortingCheck = function (e) {
 };
 
 btnSortingCheck.addEventListener("click", handleSortingCheck);
+btnSortingSort.addEventListener("click", function(e){
+    e.preventDefault();
+    sortingHatResult.textContent = 'You are...';
+});
 
 
 
@@ -253,5 +258,19 @@ btnHermione.addEventListener("click", function(e){
     words.push(word);
     console.log(words);
     inputHermione.value = '';
-    lineHermione.textContent = words;
-})
+    const number = words.length
+    if (number ===1) {
+    lineHermione[number-1].textContent = words[number-1]}
+    else {
+        lineHermione[(number*2)-2].textContent = words[number-1]
+    }
+    // lineHermione.forEach(function(line, i){
+    //  console.log(line, i)
+    //     lineHermione[i].textContent = `${words[i]}`
+    // })
+   
+});
+
+
+
+

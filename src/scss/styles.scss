@@ -336,7 +336,7 @@ main {
     margin: 2em auto;
     display: flex;
     justify-content: space-around;
-    align-items: flex-start;
+    align-items: center;
   }
 }
 
@@ -346,14 +346,21 @@ main {
 
 .hermione__template {
   width: auto;
-  height: 60vh;
+  height: auto;
   display: grid;
+  gap: 0.05em;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-  background-color: $navy;
+  grid-auto-rows: 1em;
+  background-color: black;
+  border: 0.03em solid $navy;
+
   .hermione__line {
-    padding: 0.2em;
-    color: $navy;
+    color: black;
+    background-color: white;
+    font-size: 0.8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
