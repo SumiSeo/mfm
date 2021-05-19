@@ -9,6 +9,10 @@ const tmDiary = document.querySelector(".tm__diary");
 const libraryHermione = document.querySelector(".library__hermione")
 
 
+const tableContainer = document.querySelector(".table__container");
+const tableBox = document.querySelectorAll(".table__box")
+
+
 const gringottsMovements = document.querySelector(".gringotts__movements");
 const gringottsBalance = document.querySelector(".gringotts__balance")
 const btnGringottsSort = document.querySelector(".gringotts__sort");
@@ -66,6 +70,9 @@ third.addEventListener("click", handleThird);
 fourth.addEventListener("click", handleFourth);
 
 
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+//Gringott wizarding bank
 
 
 const sumi = {
@@ -177,7 +184,8 @@ btnSortingSort.addEventListener("click", function(e){
 
 
 
-
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
 // setInterval(( ) => tmDiaryToday.textContent  = timeFinal, 1000)
 // tmDiaryToday.textContent
 // tmDiaryToday.textContent  = timeFi
@@ -202,7 +210,8 @@ const displayTime = function(){
 setInterval(displayTime, 1000)
 
 
-
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
 //Harry speaking
 harrySpeaking.innerHTML='';
 tmSpeaking.innerHTML='';
@@ -245,8 +254,8 @@ setTimeout(function() {
 },13000);
 
 
-
-///////////////////////////////
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
 //Hermione
 let words=[];
 
@@ -271,6 +280,36 @@ btnHermione.addEventListener("click", function(e){
    
 });
 
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+//Hover over on the all the links
 
+// tableContainer.addEventListener("mouseover", function(e){
+//     if( e.target.classList.contains("table__info")) {
+//         const link = e.target
+//         const siblings = link.closest(".table__container").querySelectorAll(".table__info")
+//         // console.log(siblings)
+//         siblings.forEach(function(sibling){
+//             if (sibling !== link) {
+//                 sibling.style.color ="red";
+//             }
+//         })
+//     }
+   
+// })
 
+// tableContainer.addEventListener("mouseout", function(e){
+//     if( e.target.classList.contains("table__info")) {
+//         const link = e.target
+//         const siblings = link.closest(".table__container").querySelectorAll(".table__info")
+//         siblings.forEach(function(sibling){
+//             if (sibling !== link) {
+//                 sibling.style.color ="red";
+    
+//             }
+//         })
+//         // link.style.opacity = 0.5;
+//     }
+   
+// })
 
