@@ -3,10 +3,12 @@ const first = document.querySelector(".first");
 const second = document.querySelector(".second");
 const third = document.querySelector(".third");
 const fourth = document.querySelector(".fourth");
+const fifth = document.querySelector(".fifth");
 const bank = document.querySelector(".gringotts");
 const hat = document.querySelector(".sortingHat");
 const tmDiary = document.querySelector(".tm__diary");
 const libraryHermione = document.querySelector(".library__hermione")
+const frogChocolate = document.querySelector(".frog__chocolate")
 
 
 const tableContainer = document.querySelector(".table__container");
@@ -44,6 +46,10 @@ const inputHermione = document.querySelector(".hermione__input")
 const lineHermione =document.querySelectorAll(".hermione__line")
 const linesHermione = document.querySelector(".hermione__template");
 
+
+
+const btnRight = document.querySelector(".btn--right");
+const btnLeft = document.querySelector(".btn--left");
 // document.addEventListener("mousemove", function(e){
 //     cursor.setAttribute("style", "top: "+e.pageY+"px; left: "+e.pageX+"px;");
 // })
@@ -64,10 +70,16 @@ const handleFourth = function () {
     libraryHermione.classList.toggle("visible");
 };
 
+const handleFifth = function () {
+    frogChocolate.classList.toggle("visible");
+};
+
+
 first.addEventListener("click", handleFirst);
 second.addEventListener("click", handleSecond);
 third.addEventListener("click", handleThird);
 fourth.addEventListener("click", handleFourth);
+fifth.addEventListener("click", handleFifth);
 
 
 //////////////////////////////////////////////////////////////
