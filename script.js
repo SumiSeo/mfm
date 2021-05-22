@@ -62,8 +62,14 @@ const handleSecond = function () {
     hat.classList.toggle("visible");
 };
 
+let showingDiary = false;
 const handleThird = function () {
     tmDiary.classList.toggle("visible");
+    showingDiary = true;
+    if (showingDiary){
+        displayDiary();
+    }
+   
 };
 
 const handleFourth = function () {
@@ -98,12 +104,23 @@ const displaymovements = function (movement) {
     gringottsMovements.innerHTML = '';
     movement.forEach(function (mov) {
         const type = mov > 0 ? 'deposit' : 'withdrawal';
-        const html = `
-        <div class="movement">
-       <span class="movement__status__${type}">${type}</span>
-       <span class="movement__context">She bought a coffee</span>
-       <span class="movement__money">${mov}€</span>
-       </div>`;
+        let html;
+        if (mov>0){
+            html = `
+            <div class="movement">
+           <span class="movement__status__${type}">${type}</span>
+           <span class="movement__context">KEEP SAVE YOUR MONEY ! 😝</span>
+           <span class="movement__money">${mov}€</span>
+           </div>`;
+        } else {
+            html = `
+            <div class="movement">
+           <span class="movement__status__${type}">${type}</span>
+           <span class="movement__context">DO NOT SPEND TO MUCH ! 😖</span>
+           <span class="movement__money">${mov}€</span>
+           </div>`;
+        }
+        
         gringottsMovements.insertAdjacentHTML('afterbegin', html);
     });
 };
@@ -124,7 +141,7 @@ displaySummary(sumi.gringottsMovements);
 
 const displayBalance = function (sum) {
     const balance = sum.reduce(function (acc, cur) { return acc + cur }, 0);
-    gringottsBalance.textContent = balance;
+    gringottsBalance.textContent =`${balance}€`;
 }
 displayBalance(sumi.gringottsMovements);
 
@@ -165,6 +182,7 @@ let currentName;
 const handleSortingCheck = function (e) {
     e.preventDefault();
     currentName = inputSortingHat.value;
+    if(currentName){
     const lowerName = currentName.toLowerCase().slice(0, 1);
     console.log(lowerName);
     if (lowerName === 'h' || lowerName === 's' || lowerName === 'y' || lowerName === 'r') {
@@ -185,7 +203,7 @@ const handleSortingCheck = function (e) {
         inputSortingHat.value = '';
         inputSortingHat.blur();
     }
-
+    }
 };
 
 btnSortingCheck.addEventListener("click", handleSortingCheck);
@@ -231,40 +249,42 @@ harrySpeaking2.innerHTML='';
 tmSpeaking2.innerHTML='';
 harrySpeaking3.innerHTML='';
 tmSpeaking3.innerHTML='';
-setTimeout(function(){
-    harrySpeaking.textContent= 'My name is Harry Potter.';
-    harrySpeaking.classList.add("tm__diary__animation")
-},2000);
-
-
-setTimeout(function() {
-    tmSpeaking.textContent= "hello Harry Potter, my name is Tom Riddle.";
-    tmSpeaking.classList.add("tm__diary__animation")
-
-},5000);
-
-setTimeout(function(){
-    harrySpeaking2.textContent= '...Do you know anything about the chamber of secrets?';
-    harrySpeaking2.classList.add("tm__diary__animation")
-},7000);
-
-setTimeout(function() {
-    tmSpeaking2.textContent= "Yes.";
-    tmSpeaking2.classList.add("tm__diary__animation")
-
-},9000);
-
-setTimeout(function(){
-    harrySpeaking3.textContent= 'Can you tell me ?';
-    harrySpeaking3.classList.add("tm__diary__animation")
-},11000);
-
-setTimeout(function() {
-    tmSpeaking3.textContent= "No.";
-    tmSpeaking3.classList.add("tm__diary__animation")
-
-},13000);
-
+const displayDiary = function(){
+    setTimeout(function(){
+        harrySpeaking.textContent= 'My name is Harry Potter.';
+        harrySpeaking.classList.add("tm__diary__animation")
+    },1000);
+    
+    
+    setTimeout(function() {
+        tmSpeaking.textContent= "hello Harry Potter, my name is Tom Riddle.";
+        tmSpeaking.classList.add("tm__diary__animation")
+    
+    },3000);
+    
+    setTimeout(function(){
+        harrySpeaking2.textContent= '...Do you know anything about the chamber of secrets?';
+        harrySpeaking2.classList.add("tm__diary__animation")
+    },5000);
+    
+    setTimeout(function() {
+        tmSpeaking2.textContent= "Yes.";
+        tmSpeaking2.classList.add("tm__diary__animation")
+    
+    },7000);
+    
+    setTimeout(function(){
+        harrySpeaking3.textContent= 'Can you tell me ?';
+        harrySpeaking3.classList.add("tm__diary__animation")
+    },9000);
+    
+    setTimeout(function() {
+        tmSpeaking3.textContent= "No.";
+        tmSpeaking3.classList.add("tm__diary__animation")
+    
+    },11000);
+    
+};
 
 //////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////
@@ -291,37 +311,4 @@ btnHermione.addEventListener("click", function(e){
     // })
    
 });
-
-//////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////
-//Hover over on the all the links
-
-// tableContainer.addEventListener("mouseover", function(e){
-//     if( e.target.classList.contains("table__info")) {
-//         const link = e.target
-//         const siblings = link.closest(".table__container").querySelectorAll(".table__info")
-//         // console.log(siblings)
-//         siblings.forEach(function(sibling){
-//             if (sibling !== link) {
-//                 sibling.style.color ="red";
-//             }
-//         })
-//     }
-   
-// })
-
-// tableContainer.addEventListener("mouseout", function(e){
-//     if( e.target.classList.contains("table__info")) {
-//         const link = e.target
-//         const siblings = link.closest(".table__container").querySelectorAll(".table__info")
-//         siblings.forEach(function(sibling){
-//             if (sibling !== link) {
-//                 sibling.style.color ="red";
-    
-//             }
-//         })
-//         // link.style.opacity = 0.5;
-//     }
-   
-// })
 
