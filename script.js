@@ -99,6 +99,7 @@ const sumi = {
     pin: 1209,
 };
 
+//Get data from local Storage;
 
 const displaymovements = function (movement) {
     gringottsMovements.innerHTML = '';
@@ -156,6 +157,8 @@ const handleSavingsButton = function (e) {
         displaymovements(sumi.gringottsMovements);
         displaySummary(sumi.gringottsMovements);
         inputSavings.value = '';
+        setLocalStorage();
+
     }
 }
 
@@ -168,13 +171,36 @@ const handleExpensesButton = function (e) {
         displaymovements(sumi.gringottsMovements);
         displaySummary(sumi.gringottsMovements);
         inputExpenses.value = '';
+        setLocalStorage();
+
+        
     }
 }
+
+const setLocalStorage = function(){
+    localStorage.setItem("moneyFlux", JSON.stringify(sumi));
+};
+
+const getLocalStorage = function(){
+    const moneyData = JSON.parse(localStorage.getItem("moneyFlux"));
+    if (!moneyData) return;
+    const moneyData2 = moneyData.gringottsMovements;
+    sumi.gringottsMovements = moneyData2;
+    displaymovements(moneyData2);
+    displayBalance(moneyData2);
+    displaySummary(moneyData2);
+};
+
+getLocalStorage();
 
 savingsbutton.addEventListener("click", handleSavingsButton);
 expensebutton.addEventListener("click", handleExpensesButton);
 
 
+
+
+
+////////////////////////////////////////////////////////////////////////
 const houses = ['Gryffindor', 'Ravenclaw', 'Hufflepuff', 'Slytherin'];
 
 
