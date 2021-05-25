@@ -681,6 +681,81 @@ main {
   }
 }
 
+.padfoot__map {
+  width: auto;
+  height: 33em;
+  margin: 2.5em 2em;
+  margin-top: 0.5em;
+  border-radius: 1.4em;
+  border: 0.03em solid black;
+  display: flex;
+  justify-content: center;
+}
+
+.map__container {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+  font-size: 1.3rem;
+  position: relative;
+
+  .map__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .map__text {
+      padding: 0.4rem;
+      background-color: $navy;
+      color: $yellow;
+      transition: color 0.4s;
+
+      &:hover {
+        color: $green;
+      }
+    }
+  }
+}
+
+.lumos__btn {
+  margin-top: 2rem;
+  width: 4rem;
+  height: 2rem;
+  display: block;
+  background-color: white;
+  border: 0.04rem solid $green;
+  font-style: italic;
+  background: linear-gradient(
+    60deg,
+    #f79533,
+    #f37055,
+    #ef4e7b,
+    #a166ab,
+    #5073b8,
+    #1098ad,
+    #07b39b,
+    #6fba82
+  );
+}
+
+.map__none {
+  opacity: 0;
+  transition: opacity 2s;
+}
+
+.map__map {
+  background-color: black;
+  // position: absolute;
+  width: 30rem;
+  height: 30rem;
+  position: absolute;
+  top: 40rem;
+}
+
 .visible {
   display: none;
+}
+
+.map__bye {
+  display: none;
+  transition: opacity 5s;
 }

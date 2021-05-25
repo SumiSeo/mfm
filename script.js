@@ -4,11 +4,13 @@ const second = document.querySelector(".second");
 const third = document.querySelector(".third");
 const fourth = document.querySelector(".fourth");
 const fifth = document.querySelector(".fifth");
+const sixth = document.querySelector(".sixth");
 const bank = document.querySelector(".gringotts");
 const hat = document.querySelector(".sortingHat");
 const tmDiary = document.querySelector(".tm__diary");
 const libraryHermione = document.querySelector(".library__hermione")
 const frogChocolate = document.querySelector(".frog__chocolate")
+const padfootMap= document.querySelector(".padfoot__map")
 
 
 const tableContainer = document.querySelector(".table__container");
@@ -50,6 +52,18 @@ const linesHermione = document.querySelector(".hermione__template");
 
 const btnRight = document.querySelector(".btn--right");
 const btnLeft = document.querySelector(".btn--left");
+
+
+
+const btnLumos = document.querySelector(".lumos__btn");
+const inputMap = document.querySelector(".map__input");
+const mapContainer = document.querySelector(".map__container");
+const mapMap = document.querySelector(".map__map");
+
+
+
+
+
 // document.addEventListener("mousemove", function(e){
 //     cursor.setAttribute("style", "top: "+e.pageY+"px; left: "+e.pageX+"px;");
 // })
@@ -79,13 +93,16 @@ const handleFourth = function () {
 const handleFifth = function () {
     frogChocolate.classList.toggle("visible");
 };
-
+const handleSixth = function(){
+    padfootMap.classList.toggle("visible");
+}
 
 first.addEventListener("click", handleFirst);
 second.addEventListener("click", handleSecond);
 third.addEventListener("click", handleThird);
 fourth.addEventListener("click", handleFourth);
 fifth.addEventListener("click", handleFifth);
+sixth.addEventListener("click", handleSixth);
 
 
 //////////////////////////////////////////////////////////////
@@ -208,6 +225,7 @@ let currentName;
 const handleSortingCheck = function (e) {
     e.preventDefault();
     currentName = inputSortingHat.value;
+    if(!currentName) return;
     if(currentName){
     const lowerName = currentName.toLowerCase().slice(0, 1);
     console.log(lowerName);
@@ -337,4 +355,23 @@ btnHermione.addEventListener("click", function(e){
     // })
    
 });
+
+mapContainer.classList.remove("map__none")
+
+///////////////////////////////////////////////
+///////////////////////////////////////////////
+///////////////////////////////////////////////
+btnLumos.addEventListener("click", function(e){
+    e.preventDefault();
+    const magic = inputMap.value.toLowerCase();
+    const trimMagic = magic.replaceAll(' ','');
+    if(!trimMagic) return;
+    // if(magic ==='nogood')
+    console.log(trimMagic)
+    if (trimMagic ==='nogood') {
+        mapContainer.classList.add("map__none");
+
+    }
+    inputMap.value='';
+})
 
