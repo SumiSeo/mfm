@@ -745,7 +745,7 @@ main {
 .map__map {
   background-color: black;
   // position: absolute;
-  width: 30rem;
+  width: 50rem;
   height: 30rem;
   position: absolute;
   top: 40rem;
@@ -757,5 +757,4 @@ main {
 
 .map__bye {
   display: none;
-  transition: opacity 5s;
 }

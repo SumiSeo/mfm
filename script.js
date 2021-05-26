@@ -356,7 +356,7 @@ btnHermione.addEventListener("click", function(e){
    
 });
 
-mapContainer.classList.remove("map__none")
+mapContainer.classList.remove("map__none");
 
 ///////////////////////////////////////////////
 ///////////////////////////////////////////////
@@ -370,8 +370,21 @@ btnLumos.addEventListener("click", function(e){
     console.log(trimMagic)
     if (trimMagic ==='nogood') {
         mapContainer.classList.add("map__none");
+        mapMap.classList.remove("map__bye");
+      
 
     }
     inputMap.value='';
 })
 
+
+
+const map = L.map('map').setView([51.6902525, -0.4196959],20);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+L.marker([51.5, -0.09]).addTo(map)
+    .bindPopup('Snape')
+    .openPopup();
