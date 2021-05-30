@@ -67,6 +67,7 @@ const aboutCountry = document.querySelector(".about__country");
 const countryInput = document.querySelector(".country__header--input");
 const countryButton = document.querySelector(".country__header--button");
 const loadingSpinner = document.querySelector(".fa-spinner");
+const countryLists = document.querySelector(".country__lists");
 
 
 // document.addEventListener("mousemove", function(e){
@@ -144,7 +145,7 @@ const displaymovements = function (movement) {
             html = `
             <div class="movement">
            <span class="movement__status__${type}">${type}</span>
-           <span class="movement__context">DO NOT SPEND TO MUCH ! 😖</span>
+           <span class="movement__context">DO NOT SPEND TOO MUCH ! 😖</span>
            <span class="movement__money">${mov}€</span>
            </div>`;
         }
@@ -421,23 +422,38 @@ const loadSpinner = function(){
     parentElement.insertAdjacentHTML("afterbegin",markup);
 };
 
+
+
+const displayFindCountry = function(data){
+    const markup = `
+    <ul class="country__list">
+        <li class="country__character">Harry Potter</li>
+        <li class="country__country">${data.name.slice(0,6)}</li>
+        <li class="country__city">${data.capital.slice(0,6)}</li>
+      </ul>
+    `;
+    countryLists.insertAdjacentHTML("afterbegin", markup);
+};
+
 const findCountry = async function(country){
     try {
     loadSpinner();
     const res = await fetch(`https://restcountries.eu/rest/v2/name/${country}`);
     const data = await res.json();
-    console.log(data[0]);
+    const finalData = data[0]
+    console.log(data);
     aboutCountry.innerHTML= '';
     if(!data) return;
     const markup = `
-        <div class="country__flag"><img src="${data[0].flag}"/></div>
-        <div class="country__name"><h1>${data[0].name} →</h1></div>
-        <div class="country__city"><span>${data[0].capital}</span></div>
+        <div class="country__flag"><img src="${finalData.flag}"/></div>
+        <div class="country__name"><h1>${finalData.name.slice(0,6)} →</h1></div>
+        <div class="country__city"><span>${finalData.capital.slice(0,6)}</span></div>
      `;
     aboutCountry.insertAdjacentHTML("afterbegin", markup);
+    displayFindCountry(finalData);
 }
     catch(err) {
         console.log(`${err}  😗`)
     }
-}
+};
 
