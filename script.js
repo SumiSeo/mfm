@@ -5,12 +5,14 @@ const third = document.querySelector(".third");
 const fourth = document.querySelector(".fourth");
 const fifth = document.querySelector(".fifth");
 const sixth = document.querySelector(".sixth");
+const seventh = document.querySelector(".seventh");
 const bank = document.querySelector(".gringotts");
 const hat = document.querySelector(".sortingHat");
 const tmDiary = document.querySelector(".tm__diary");
 const libraryHermione = document.querySelector(".library__hermione")
 const frogChocolate = document.querySelector(".frog__chocolate")
 const padfootMap= document.querySelector(".padfoot__map")
+const tellCountry= document.querySelector(".tell__country")
 
 
 const tableContainer = document.querySelector(".table__container");
@@ -61,7 +63,10 @@ const mapContainer = document.querySelector(".map__container");
 const mapMap = document.querySelector(".map__map");
 
 
-
+const aboutCountry = document.querySelector(".about__country");
+const countryInput = document.querySelector(".country__header--input");
+const countryButton = document.querySelector(".country__header--button");
+const loadingSpinner = document.querySelector(".fa-spinner");
 
 
 // document.addEventListener("mousemove", function(e){
@@ -97,12 +102,17 @@ const handleSixth = function(){
     padfootMap.classList.toggle("visible");
 }
 
+const handleSeventh = function(){
+    tellCountry.classList.toggle("visible");
+}
+
 first.addEventListener("click", handleFirst);
 second.addEventListener("click", handleSecond);
 third.addEventListener("click", handleThird);
 fourth.addEventListener("click", handleFourth);
 fifth.addEventListener("click", handleFifth);
 sixth.addEventListener("click", handleSixth);
+seventh.addEventListener("click", handleSeventh)
 
 
 //////////////////////////////////////////////////////////////
@@ -369,10 +379,7 @@ btnLumos.addEventListener("click", function(e){
     // if(magic ==='nogood')
     console.log(trimMagic)
     if (trimMagic ==='nogood') {
-        mapContainer.classList.add("map__none");
         mapMap.classList.remove("map__bye");
-      
-
     }
     inputMap.value='';
 })
@@ -388,3 +395,49 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 L.marker([51.5, -0.09]).addTo(map)
     .bindPopup('Snape')
     .openPopup();
+
+
+
+
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+
+
+countryButton.addEventListener("click", function(e){
+        e.preventDefault();
+        const search =countryInput.value;
+        countryInput.value= '';
+        // console.log(search);
+        findCountry(search);
+    })
+
+const loadSpinner = function(){
+    const parentElement = aboutCountry;
+    const markup = `
+    <div class="spinner">
+    <i class="fas fa-spinner"></i>
+    </div>`;
+    parentElement.insertAdjacentHTML("afterbegin",markup);
+};
+
+const findCountry = async function(country){
+    try {
+    loadSpinner();
+    const res = await fetch(`https://restcountries.eu/rest/v2/name/${country}`);
+    const data = await res.json();
+    console.log(data[0]);
+    aboutCountry.innerHTML= '';
+    if(!data) return;
+    const markup = `
+        <div class="country__flag"><img src="${data[0].flag}"/></div>
+        <div class="country__name"><h1>${data[0].name} →</h1></div>
+        <div class="country__city"><span>${data[0].capital}</span></div>
+     `;
+    aboutCountry.insertAdjacentHTML("afterbegin", markup);
+}
+    catch(err) {
+        console.log(`${err}  😗`)
+    }
+}
+
