@@ -403,7 +403,24 @@ L.marker([51.5, -0.09]).addTo(map)
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
+const countries = [];
+const harry = {
+    name : 'harry',
+    country : 'uk',
+    city : 'london',
+}
 
+const hermione = {
+    name : 'hermione',
+    country : '',
+    city : '',
+}
+
+const ron= {
+    name : 'ron',
+    country : '',
+    city : '',
+}
 
 countryButton.addEventListener("click", function(e){
         e.preventDefault();
@@ -422,35 +439,48 @@ const loadSpinner = function(){
     parentElement.insertAdjacentHTML("afterbegin",markup);
 };
 
-
+countryLists.addEventListener("click", function(e) {
+    const btn = e.target.closest(".country__list");
+    const nameCountry = btn.querySelector(".country__country").textContent;
+    console.log(nameCountry);
+    findCountry(nameCountry);
+    // console.log(btn)
+})
 
 const displayFindCountry = function(data){
     const markup = `
     <ul class="country__list">
-        <li class="country__character">Harry Potter</li>
+        <li class="country__character">${data.callingCodes}</li>
         <li class="country__country">${data.name.slice(0,6)}</li>
-        <li class="country__city">${data.capital.slice(0,6)}</li>
+        <li class="country__city">${data.capital.slice(0,9)}</li>
       </ul>
     `;
     countryLists.insertAdjacentHTML("afterbegin", markup);
 };
+
 
 const findCountry = async function(country){
     try {
     loadSpinner();
     const res = await fetch(`https://restcountries.eu/rest/v2/name/${country}`);
     const data = await res.json();
-    const finalData = data[0]
+    const finalData = data[0];
     console.log(data);
     aboutCountry.innerHTML= '';
     if(!data) return;
     const markup = `
         <div class="country__flag"><img src="${finalData.flag}"/></div>
         <div class="country__name"><h1>${finalData.name.slice(0,6)} →</h1></div>
-        <div class="country__city"><span>${finalData.capital.slice(0,6)}</span></div>
+        <div class="country__city"><span>${finalData.capital.slice(0,9)}</span></div>
      `;
     aboutCountry.insertAdjacentHTML("afterbegin", markup);
-    displayFindCountry(finalData);
+  
+    if(!countries.includes(finalData.name)) {
+        displayFindCountry(finalData);
+        countries.push(finalData.name); 
+        console.log(countries)
+    }
+  
 }
     catch(err) {
         console.log(`${err}  😗`)
