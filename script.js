@@ -6,6 +6,7 @@ const fourth = document.querySelector(".fourth");
 const fifth = document.querySelector(".fifth");
 const sixth = document.querySelector(".sixth");
 const seventh = document.querySelector(".seventh");
+const eighth = document.querySelector(".eighth");
 const bank = document.querySelector(".gringotts");
 const hat = document.querySelector(".sortingHat");
 const tmDiary = document.querySelector(".tm__diary");
@@ -13,7 +14,7 @@ const libraryHermione = document.querySelector(".library__hermione")
 const frogChocolate = document.querySelector(".frog__chocolate")
 const padfootMap= document.querySelector(".padfoot__map")
 const tellCountry= document.querySelector(".tell__country")
-
+const mollyKitchen =document.querySelector(".molly__kitchen");
 
 const tableContainer = document.querySelector(".table__container");
 const tableBox = document.querySelectorAll(".table__box")
@@ -70,6 +71,12 @@ const loadingSpinner = document.querySelector(".fa-spinner");
 const countryLists = document.querySelector(".country__lists");
 
 
+const mollyRecipe = document.querySelector(".molly__recipes--lists");
+const mollyRecipeInput = document.querySelector(".molly__recipes--input");
+const mollyRecipeButton = document.querySelector(".molly__recipes--button");
+const mollyRecipeImg = document.querySelector(".molly__recipes--img");
+
+
 // document.addEventListener("mousemove", function(e){
 //     cursor.setAttribute("style", "top: "+e.pageY+"px; left: "+e.pageX+"px;");
 // })
@@ -107,6 +114,10 @@ const handleSeventh = function(){
     tellCountry.classList.toggle("visible");
 }
 
+const handleEighth = function(){
+    mollyKitchen.classList.toggle("visible");
+}
+
 first.addEventListener("click", handleFirst);
 second.addEventListener("click", handleSecond);
 third.addEventListener("click", handleThird);
@@ -114,6 +125,7 @@ fourth.addEventListener("click", handleFourth);
 fifth.addEventListener("click", handleFifth);
 sixth.addEventListener("click", handleSixth);
 seventh.addEventListener("click", handleSeventh)
+eighth.addEventListener("click", handleEighth)
 
 
 //////////////////////////////////////////////////////////////
@@ -430,8 +442,8 @@ countryButton.addEventListener("click", function(e){
         findCountry(search);
     })
 
-const loadSpinner = function(){
-    const parentElement = aboutCountry;
+const loadSpinner = function(parentEl){
+    const parentElement = parentEl;
     const markup = `
     <div class="spinner">
     <i class="fas fa-spinner"></i>
@@ -461,7 +473,7 @@ const displayFindCountry = function(data){
 
 const findCountry = async function(country){
     try {
-    loadSpinner();
+    loadSpinner(aboutCountry);
     const res = await fetch(`https://restcountries.eu/rest/v2/name/${country}`);
     const data = await res.json();
     const finalData = data[0];
@@ -487,3 +499,40 @@ const findCountry = async function(country){
     }
 };
 
+const displayRecipe = function(e){
+    e.preventDefault();
+    const search = mollyRecipeInput.value;
+    
+    findRecipe(search);
+}
+
+mollyRecipeButton.addEventListener("click", displayRecipe);
+
+
+const findRecipe = async function(food){
+    try {
+        loadSpinner(mollyRecipeImg);
+        const res = await fetch(`https://forkify-api.herokuapp.com/api/v2/recipes?search=${food}`)
+        const data = await res.json();
+        const finalData = data.data.recipes;
+        mollyRecipe.innerHTML="";
+        finalData.forEach(function(el){
+
+        
+            const markup = `
+            <div class="molly__recipes--list">
+            <div class="molly__recipes--img"><img src="${el.image_url}"></div>
+        <h1 class="molly__recipes--title">${el.title}</h1>
+        <p class="molly__recipe--publisher">${el.publisher}</p></div>`
+        mollyRecipe.insertAdjacentHTML("afterbegin", markup);
+
+        });
+        mollyRecipeInput.value="";
+        
+        
+    } catch(err){
+
+    }
+
+};
+mollyRecipe.innerHTML="";
