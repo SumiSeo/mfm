@@ -1,3 +1,5 @@
+// const { getMaxListeners } = require("gulp");
+
 const cursor = document.querySelector(".cursor");
 const first = document.querySelector(".first");
 const second = document.querySelector(".second");
@@ -72,9 +74,11 @@ const countryLists = document.querySelector(".country__lists");
 
 
 const mollyRecipe = document.querySelector(".molly__recipes--lists");
-const mollyRecipeInput = document.querySelector(".molly__recipes--input");
-const mollyRecipeButton = document.querySelector(".molly__recipes--button");
+
+const mollyRecipeSelect = document.querySelector(".molly__recipes--select");
 const mollyRecipeImg = document.querySelector(".molly__recipes--img");
+const mollyKitchenDinner = document.querySelector(".molly__kitchen--dinner");
+const mollyKitchenLink = document.querySelector(".molly__kitchen--link");
 
 
 // document.addEventListener("mousemove", function(e){
@@ -499,14 +503,8 @@ const findCountry = async function(country){
     }
 };
 
-const displayRecipe = function(e){
-    e.preventDefault();
-    const search = mollyRecipeInput.value;
-    
-    findRecipe(search);
-}
+///////////////////////////////
 
-mollyRecipeButton.addEventListener("click", displayRecipe);
 
 
 const findRecipe = async function(food){
@@ -515,20 +513,21 @@ const findRecipe = async function(food){
         const res = await fetch(`https://forkify-api.herokuapp.com/api/v2/recipes?search=${food}`)
         const data = await res.json();
         const finalData = data.data.recipes;
+        console.log(finalData[1]);
         mollyRecipe.innerHTML="";
         finalData.forEach(function(el){
-
-        
+          
             const markup = `
             <div class="molly__recipes--list">
-            <div class="molly__recipes--img"><img src="${el.image_url}"></div>
+            <div class="molly__recipes--img"><img class="molly__recipe--img"id="${el.id}"src="${el.image_url}"></div>
         <h1 class="molly__recipes--title">${el.title}</h1>
-        <p class="molly__recipe--publisher">${el.publisher}</p></div>`
+        <p class="molly__recipe--publisher">${el.publisher}</p></div>`;
+
         mollyRecipe.insertAdjacentHTML("afterbegin", markup);
 
         });
         mollyRecipeInput.value="";
-        
+    
         
     } catch(err){
 
@@ -536,3 +535,30 @@ const findRecipe = async function(food){
 
 };
 mollyRecipe.innerHTML="";
+
+const displayRecipe = function(){
+
+    const search =  mollyRecipeSelect.value;
+    // console.log(search);
+    
+    findRecipe(search);
+}
+
+mollyRecipeSelect.addEventListener("change", displayRecipe)
+
+mollyRecipe.addEventListener("click", function(e){
+    const clicked = e.target.closest(".molly__recipes--list");
+    if(!clicked)return;
+    console.log(clicked);
+
+    if(clicked){
+    const article = document.querySelector(".molly__recipe--img");
+   const imgId = article.id;
+    // getRecipeLink(imgId);
+    const url = `
+    <a class="molly__kitchen--link" target="blank" href="https://forkify-api.herokuapp.com/api/get?rId=${imgId}">
+    Go to see actual recipe &rarr;</a>`;
+    mollyKitchenDinner.insertAdjacentHTML("afterbegin",url);
+    }
+});
+

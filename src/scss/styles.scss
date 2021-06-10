@@ -912,33 +912,26 @@ main {
   margin-top: 3rem;
   display: flex;
   justify-content: center;
-  .molly__recipes--input {
-    width: 20rem;
-    padding: 1.2rem;
+  align-items: center;
+  .molly__recipes--label {
+    margin-right: 0.5rem;
+  }
+  .molly__recipes--select {
+    width: 10rem;
+    padding: 0.2rem;
+    background-color: $green;
     outline: none;
     border: 0.05rem solid black;
     border-radius: 3px;
     margin-right: 2rem;
-    color: white;
+    color: black;
     &::placeholder {
       color: $yellow;
       font-size: 0.9rem;
       font-style: italic;
     }
     &:focus {
-      background-color: $green;
-    }
-  }
-  .molly__recipes--button {
-    width: 8rem;
-    background-color: white;
-    border: 0.05rem solid black;
-    border-radius: 3px;
-    outline: none;
-    color: $purple;
-    &:hover {
       background-color: $purple;
-      color: white;
     }
   }
 }
@@ -989,5 +982,16 @@ main {
   }
   .molly__recipes--title {
     font-size: 0.9rem;
+  }
+}
+
+.molly__kitchen--dinner {
+  margin: 1.4rem 0;
+
+  a {
+    text-decoration: none;
+    color: black;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.05rem solid $green;
   }
 }

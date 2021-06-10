@@ -428,8 +428,18 @@
 <div class="molly__kitchen visible">
   <div class="molly__kitchen--box">
     <form class="molly__recipes--form">
-    <input  class="molly__recipes--input" required type="text" placeholder="Are you hungry, Harry?"/>
-    <button class="molly__recipes--button">Very!</button>
+      <label  class="molly__recipes--label" for="choosing">Are you hungry, Harry?</label>
+      <select  required class="molly__recipes--select" id ="choosing" type="text">
+        <option value="">Very! 🧙‍♀️ </option>
+        <option value="pizza">Pizza 🍕</option>
+        <option value="fish">Sushi 🍣</option>
+        <option value="rice">Rice 🍙 </option>
+        <option value="salad">Salad 🥗</option>
+        <option value="lasagna">Lasagna 🍲</option>
+        <option value="cake">Cake 🍰</option>
+      </select>
+
+
   </form>
   <div class="molly__recipes--lists">
   <div class="molly__recipes--list">
@@ -442,7 +452,9 @@
   </div>
   
   <div class="molly__kitchen--box">
-  
+  <div class="molly__kitchen--dinner">
+    <!-- <a class="molly__kitchen--link" href="#">Go to see actual recipe &rarr;</a> -->
+  </div>
   </div>
 </div>
 <!--Ends-->
