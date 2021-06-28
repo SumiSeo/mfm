@@ -9,6 +9,7 @@ const fifth = document.querySelector(".fifth");
 const sixth = document.querySelector(".sixth");
 const seventh = document.querySelector(".seventh");
 const eighth = document.querySelector(".eighth");
+const ninth = document.querySelector(".ninth");
 const bank = document.querySelector(".gringotts");
 const hat = document.querySelector(".sortingHat");
 const tmDiary = document.querySelector(".tm__diary");
@@ -17,6 +18,7 @@ const frogChocolate = document.querySelector(".frog__chocolate")
 const padfootMap= document.querySelector(".padfoot__map")
 const tellCountry= document.querySelector(".tell__country")
 const mollyKitchen =document.querySelector(".molly__kitchen");
+const gaunt = document.querySelector(".gaunt");
 
 const tableContainer = document.querySelector(".table__container");
 const tableBox = document.querySelectorAll(".table__box")
@@ -31,6 +33,7 @@ const savingsbutton = document.querySelector(".input__button--savings");
 const expensebutton = document.querySelector(".input__button--expenses");
 const summaryPlus = document.querySelector(".gringotts__summary--plus");
 const summaryMinus = document.querySelector(".gringotts__summary--minus");
+const gringottsSummaryReset = document.querySelector(".gringotts__summary--reset");
 
 
 const inputSortingHat = document.querySelector(".sortinghat__name");
@@ -73,7 +76,7 @@ const loadingSpinner = document.querySelector(".fa-spinner");
 const countryLists = document.querySelector(".country__lists");
 
 
-const mollyRecipe = document.querySelector(".molly__recipes--lists");
+const mollyRecipeList = document.querySelector(".molly__recipes--lists");
 
 const mollyRecipeSelect = document.querySelector(".molly__recipes--select");
 const mollyRecipeImg = document.querySelector(".molly__recipes--img");
@@ -122,6 +125,10 @@ const handleEighth = function(){
     mollyKitchen.classList.toggle("visible");
 }
 
+const handleNinth = function() {
+    gaunt.classList.toggle("visible");
+}
+
 first.addEventListener("click", handleFirst);
 second.addEventListener("click", handleSecond);
 third.addEventListener("click", handleThird);
@@ -130,6 +137,7 @@ fifth.addEventListener("click", handleFifth);
 sixth.addEventListener("click", handleSixth);
 seventh.addEventListener("click", handleSeventh)
 eighth.addEventListener("click", handleEighth)
+ninth.addEventListener("click", handleNinth);
 
 
 //////////////////////////////////////////////////////////////
@@ -242,7 +250,11 @@ expensebutton.addEventListener("click", handleExpensesButton);
 
 
 
+gringottsSummaryReset.addEventListener("click", function(){
+    localStorage.clear("moneyFlux");
+    getLocalStorage(); 
 
+});
 
 ////////////////////////////////////////////////////////////////////////
 const houses = ['Gryffindor', 'Ravenclaw', 'Hufflepuff', 'Slytherin'];
@@ -505,16 +517,16 @@ const findCountry = async function(country){
 
 ///////////////////////////////
 
-
+let res, data, finalData;
 
 const findRecipe = async function(food){
     try {
         loadSpinner(mollyRecipeImg);
-        const res = await fetch(`https://forkify-api.herokuapp.com/api/v2/recipes?search=${food}`)
-        const data = await res.json();
-        const finalData = data.data.recipes;
+        res = await fetch(`https://forkify-api.herokuapp.com/api/v2/recipes?search=${food}`)
+        data = await res.json();
+        finalData = data.data.recipes;
         console.log(finalData[1]);
-        mollyRecipe.innerHTML="";
+        mollyRecipeList.innerHTML="";
         finalData.forEach(function(el){
           
             const markup = `
@@ -523,7 +535,7 @@ const findRecipe = async function(food){
         <h1 class="molly__recipes--title">${el.title}</h1>
         <p class="molly__recipe--publisher">${el.publisher}</p></div>`;
 
-        mollyRecipe.insertAdjacentHTML("afterbegin", markup);
+        mollyRecipeList.insertAdjacentHTML("afterbegin", markup);
 
         });
         mollyRecipeInput.value="";
@@ -534,7 +546,7 @@ const findRecipe = async function(food){
     }
 
 };
-mollyRecipe.innerHTML="";
+mollyRecipeList.innerHTML="";
 
 const displayRecipe = function(){
 
@@ -544,21 +556,24 @@ const displayRecipe = function(){
     findRecipe(search);
 }
 
-mollyRecipeSelect.addEventListener("change", displayRecipe)
+mollyRecipeSelect.addEventListener("change", displayRecipe);
 
-mollyRecipe.addEventListener("click", function(e){
+mollyRecipeList.addEventListener("click", function(e){
+
+
+    // console.log(finalData[0]);
+
     const clicked = e.target.closest(".molly__recipes--list");
+    const publisher = clicked.querySelector(".molly__recipe--publisher");
+    console.log(publisher);
     if(!clicked)return;
-    console.log(clicked);
 
-    if(clicked){
-    const article = document.querySelector(".molly__recipe--img");
-   const imgId = article.id;
-    // getRecipeLink(imgId);
-    const url = `
-    <a class="molly__kitchen--link" target="blank" href="https://forkify-api.herokuapp.com/api/get?rId=${imgId}">
-    Go to see actual recipe &rarr;</a>`;
-    mollyKitchenDinner.insertAdjacentHTML("afterbegin",url);
+    if(publisher){
+    const id = publisher.textContent;
+    const url = `https://www.${id.toLowerCase()}.com`;
+    const markup = `
+    <a target="blank" class="molly__kitchen--link" href=${url}>Go to see actual recipe &rarr;</a>`
+    mollyKitchenDinner.insertAdjacentHTML("afterbegin", markup);
     }
 });
 
