@@ -5,20 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="dist/css/reset.css" />
     <link rel="stylesheet" href="dist/css/styles.css" />
-    <title>Donica coding</title>
+    <title>Sumi Seo | Junior Developper</title>
+    
+
   </head>
   <body>
+    <!-- <div class="cursor"></div> -->
     <header>
       Sumi Seo is a fullstack developer and a big fan of Harry Potter. This site
       is twinkled with little bit of magic for muggles.
     </header>
     <main>
-      <div clas="table__container">
+      <div class="table__container">
+        
         <div class="table__box">
           <div class="table__year"><span>Year</span></div>
-          <div class="table__title"><span>Client</span></div>
+          <div class="table__title"><span>Magic type</span></div>
           <div class="table__info">
-            <span>Info</span>
+            <span>About</span>
           </div>
           <div class="table__security">
             <span></span>
@@ -30,7 +34,7 @@
           <div class="table__year"><span>2021</span></div>
           <div class="table__title"><span>Gringotts Wizarding Bank</span></div>
           <div class="table__info">
-            <span>This is a small note when she spends muggle money.</span>
+            <span>This is a small accounting note when she spends muggle money.</span>
           </div>
           <div class="table__security">
             <span><i class="fas fa-coins"></i></i></span>
@@ -40,17 +44,24 @@
         <div class="gringotts visible">
           <div class="girngotts__header">
             <h3 class="gringotts__current">Current Balance</h3>
-            <h3 class="gringotts__balance">40000</h3>
+            <h3 class="gringotts__balance"></h3>
           </div>
           <div class="gringotts__main">
             <div class="gringotts__left">
-              <h2 class="gringotts__movement__title">Movements<span> 💸 Here you could check all the money comes and goes</span></h2>
+              <h2 class="gringotts__movement__title">Movements<span>  💸 Here you could check all the money comes and goes...</span></h2>
               <div class="gringotts__movements">
                 <div class="movement">
                   <span class="movement__status__deposit movement__status__withdrawal">Deposit</span>
                   <span class="movement__context">She bought a coffee</span>
                   <span class="movement__money">3200</span>
                 </div>
+              </div>
+              <div class="gringotts__summary">
+                <h4>Plus &rarr;&rarr;&rarr;</h4><span class="gringotts__summary--plus"></span>
+                <h4>Minus  &rarr;&rarr;&rarr;</h4><span class="gringotts__summary--minus"></span>
+                <form><button class="gringotts__summary--reset">Reset &rarr;</button></form>
+               
+               
               </div>
             </div>
             <div class="gringotts__right">
@@ -61,7 +72,7 @@
                   <input type ="number" step = "1000" class="input__text input__text--savings"/>
                   <button class="input__button input__button--savings">&rarr;</button>
                 </form>
-                              </div>
+                </div>
               </div>
               <div class="gringotts__box">
                 <h5>Expenses</h5>
@@ -73,37 +84,416 @@
                 </div>
               </div>
 
-
             </div>
           </div>
         </div>
+
         <!--Here starats second list-->
-        <div class="table__box">
-          <div class="table__year"><span>2019</span></div>
-          <div class="table__title"><span>Air Bnb</span></div>
+        <div class="table__box second">
+          <div class="table__year"><span>2021</span></div>
+          <div class="table__title"><span>Sorting hat: Gryffindor or Slytherin ?</span></div>
           <div class="table__info">
-            <span>An exploration in marketing destinations desirable</span>
+            <span>If you tell me your name, you will be sorted into your houses.</span>
           </div>
           <div class="table__security">
-            <span><i class="far fa-eye"></i></span>
+            <span><i class="fas fa-hat-wizard"></i></span>
           </div>
         </div>
-        <div class="table__box">
-          <div class="table__year"><span>2018</span></div>
-          <div class="table__title"><span>Condé nest Traveler</span></div>
+        <div class="sortingHat visible">
+          <div >
+            <form class="sortinghat__container">
+              <input type="text" class="sortinghat__name" placeholder="What is your name ?"/>
+              <button class="sortinghat__check">Tell me the result</button>
+              <h2 class="sortinghat__result">You are...</h2>
+              <form>
+              <button class="sortinghat__sort">Sort again</button></form>
+            </form>
+          </div>
+        </div>
+
+
+
+
+        
+        <!--Here starts third list-->
+        <div class="table__box third">
+          <div class="table__year"><span>2021</span></div>
+          <div class="table__title"><span>T. M. Riddle's Diary</span></div>
           <div class="table__info">
-            <span>Investigative journalisme meet digital storytelling</span>
+            <span>Do you know anything about the chamber of secrets?</span>
           </div>
           <div class="table__security">
-            <span><i class="far fa-eye"></i></span>
+            <span><i class="fas fa-book"></i></i></span>
+          </div>
+        </div>
+      
+      <div class="tm__diary visible ">
+        <div class="tm__diary__page">
+          <h2 class="tm__diary__today"></h2>
+          <div clas="tm__diary__letter">
+          <p class="tm__diary__content tm__diary--harry">My name is Harry Potter.</p>
+          <p class="tm__diary__content tm__diary--tm">hello Harry Potter, my name is Tom Riddle.</p>
+          <p class="tm__diary__content tm__diary--harry2">My name is Harry Potter.</p>
+          <p class="tm__diary__content tm__diary--tm2">hello Harry Potter, my name is Tom Riddle.</p>
+          <p class="tm__diary__content tm__diary--harry3">My name is Harry Potter.</p>
+          <p class="tm__diary__content tm__diary--tm3">hello Harry Potter, my name is Tom Riddle.</p>
           </div>
         </div>
       </div>
+    
+    
+
+      <!--Here starts fourth list-->
+      <div class="table__box fourth">
+        <div class="table__year"><span>2021</span></div>
+        <div class="table__title"><span>Study with Hermione Granger</span></div>
+        <div class="table__info">
+          <span>Hermione made a tamplet to help you memorize french words.</span>
+        </div>
+        <div class="table__security">
+          <span><i class="far fa-eye"></i></span>
+        </div>
+      </div>
+    
+    <div class="library__hermione visible">
+      <div class="hermione__container">
+        <div class="hermione__box">
+          <h2 class="hermione__speaking">Do you want to study with me ? 🙋‍♀️</2>
+          <div class="hermione__template">  
+            <div class="hermione__line"><span data-letter ="1"></span></div>
+            <div class="hermione__line"><span data-letter ="2"></span></div>
+            <div class="hermione__line"><span></span></div>
+            <div class="hermione__line"><span></span></div>
+            <div class="hermione__line"><span></span></div>
+            <div class="hermione__line"><span></span></div>
+            <div class="hermione__line"><span></span></div>
+            <div class="hermione__line"><span></span></div>
+            <div class="hermione__line"><span></span></div>
+            <div class="hermione__line"><span></span></div>
+            <div class="hermione__line"><span></span></div>
+            <div class="hermione__line"><span></span></div>
+            <div class="hermione__line"><span></span></div>
+            <div class="hermione__line"><span></span></div>
+            <div class="hermione__line"><span></span></div>
+            <div class="hermione__line"><span></span></div>
+            <div class="hermione__line"><span></span></div>
+            <div class="hermione__line"><span></span></div>
+            <div class="hermione__line"><span></span></div>
+            <div class="hermione__line"><span></span></div>
+            <div class="hermione__line"><span></span></div>
+            <div class="hermione__line"><span></span></div>
+            <div class="hermione__line"><span></span></div>
+            <div class="hermione__line"><span></span></div>
+            <div class="hermione__line"><span></span></div>
+            <div class="hermione__line"><span></span></div>
+            <div class="hermione__line"><span></span></div>
+            <div class="hermione__line"><span></span></div>
+            <div class="hermione__line"><span></span></div>
+            <div class="hermione__line"><span></span></div>
+            <div class="hermione__line"><span></span></div>
+            <div class="hermione__line"><span></span></div>
+            <div class="hermione__line"><span></span></div>
+            <div class="hermione__line"><span></span></div>
+            <div class="hermione__line"><span></span></div>
+            <div class="hermione__line"><span></span></div>
+          </div>
+        </div>
+        <div class="hermione__box">
+            <form><input class="hermione__input" required type ="text"/>
+        <button class="hermione__button">memorize ! </button></form></div>
+      </div>
+      
+    </div>
+    <!--Here starts fifth list-->
+    <div class="table__box fifth">
+      <div class="table__year"><span>2021</span></div>
+      <div class="table__title"><span>Albus Dumbledore (Chocolate Frog Card)
+        
+        </span></div>
+      <div class="table__info">
+        <span>Do you have a sweettooth?</span>
+      </div>
+      <div class="table__security">
+        <span><i class="fas fa-ice-cream"></i></span>
+      </div>
+    </div>
+    <div class="frog__chocolate visible">
+      <div class="frog__text"><span> "They’re trying to discredit him. Didn't you see the Daily Prophet last week? They reported that he’d been voted out of the Chairmanship of the International Confederation of Wizards because he’s getting old and losing his grip, but it’s not true, he was voted out by Ministry wizards after he made a speech announcing Voldemort’s return.</span></div>
+      <div class="frog__container slide">
+       
+          <div class="frog__box froggy--1">
+           <div class="frog__box__first">
+            <span class="frog__box__date">20 Mai 1945.</span>
+            <span class="frog__box__where">Hogwart.</span>
+            </div>
+           <div class="frog__box__second">
+            <div class="frog__box__image--1"></div>
+            <span class="frog__box__info">Considered by many the greatest wizard of modern times.</span>
+            </div>
+            <div class="frog__box__third">
+            <span class="frog__box__name">ALBUS DUMBLEDORE</span>
+            <span class="frog__box__job">HEADMASTER</span>
+           </div>
+           <div class="absolute__image"></div>
+      </div>
+    
+      <div class="frog__box  froggy--2">
+        <div class="frog__box__first">
+         <span class="frog__box__date">20 Mai 1945.</span>
+         <span class="frog__box__where">Hogwart.</span>
+         </div>
+        <div class="frog__box__second">
+         <div class="frog__box__image--2"></div>
+         <span class="frog__box__info">Considered by many the greatest wizard of modern times.</span>
+         </div>
+         <div class="frog__box__third">
+         <span class="frog__box__name">ALBUS DUMBLEDORE</span>
+         <span class="frog__box__job">HEADMASTER</span>
+        </div>
+        <div class="absolute__image"></div>
+   </div>
+   <div class="frog__box  froggy--3">
+    <div class="frog__box__first">
+     <span class="frog__box__date">20 Mai 1945.</span>
+     <span class="frog__box__where">Hogwart.</span>
+     </div>
+    <div class="frog__box__second">
+     <div class="frog__box__image--3"></div>
+     <span class="frog__box__info">Considered by many the greatest wizard of modern times.</span>
+     </div>
+     <div class="frog__box__third">
+     <span class="frog__box__name">ALBUS DUMBLEDORE</span>
+     <span class="frog__box__job">HEADMASTER</span>
+    </div>
+    <div class="absolute__image"></div>
+</div>
+<div class="frog__box  froggy--4">
+  <div class="frog__box__first">
+   <span class="frog__box__date">20 Mai 1945.</span>
+   <span class="frog__box__where">Hogwart.</span>
+   </div>
+  <div class="frog__box__second">
+   <div class="frog__box__image--4"></div>
+   <span class="frog__box__info">Considered by many the greatest wizard of modern times.</span>
+   </div>
+   <div class="frog__box__third">
+   <span class="frog__box__name">ALBUS DUMBLEDORE</span>
+   <span class="frog__box__job">HEADMASTER</span>
+  </div>
+  <div class="absolute__image"></div>
+</div>
+<div class="frog__box  froggy--5">
+  <div class="frog__box__first">
+   <span class="frog__box__date">20 Mai 1945.</span>
+   <span class="frog__box__where">Hogwart.</span>
+   </div>
+  <div class="frog__box__second">
+   <div class="frog__box__image--5"></div>
+   <span class="frog__box__info">Considered by many the greatest wizard of modern times.</span>
+   </div>
+   <div class="frog__box__third">
+   <span class="frog__box__name">ALBUS DUMBLEDORE</span>
+   <span class="frog__box__job">HEADMASTER</span>
+  </div>
+  <div class="absolute__image"></div>
+</div>
+<div class="frog__box  froggy--6">
+  <div class="frog__box__first">
+   <span class="frog__box__date">20 Mai 1945.</span>
+   <span class="frog__box__where">Hogwart.</span>
+   </div>
+  <div class="frog__box__second">
+   <div class="frog__box__image--6"></div>
+   <span class="frog__box__info">Considered by many the greatest wizard of modern times.</span>
+   </div>
+   <div class="frog__box__third">
+   <span class="frog__box__name">ALBUS DUMBLEDORE</span>
+   <span class="frog__box__job">HEADMASTER</span>
+  </div>
+  <div class="absolute__image"></div>
+</div>
+<div class="frog__box  froggy--7">
+  <div class="frog__box__first">
+   <span class="frog__box__date">20 Mai 1945.</span>
+   <span class="frog__box__where">Hogwart.</span>
+   </div>
+  <div class="frog__box__second">
+   <div class="frog__box__image--7"></div>
+   <span class="frog__box__info">Considered by many the greatest wizard of modern times.</span>
+   </div>
+   <div class="frog__box__third">
+   <span class="frog__box__name">ALBUS DUMBLEDORE</span>
+   <span class="frog__box__job">HEADMASTER</span>
+  </div>
+  <div class="absolute__image"></div>
+</div>
+<div class="frog__box  froggy--8">
+  <div class="frog__box__first">
+   <span class="frog__box__date">20 Mai 1945.</span>
+   <span class="frog__box__where">Hogwart.</span>
+   </div>
+  <div class="frog__box__second">
+   <div class="frog__box__image--8"></div>
+   <span class="frog__box__info">Considered by many the greatest wizard of modern times.</span>
+   </div>
+   <div class="frog__box__third">
+   <span class="frog__box__name">ALBUS DUMBLEDORE</span>
+   <span class="frog__box__job">HEADMASTER</span>
+  </div>
+  <div class="absolute__image"></div>
+</div>
+    </div>
+ 
+
+    <!--Here starts sixh list-->
+   
+
+
+
+  </div>
+
+ 
+
+<!--Here starts sixth list-->
+
+<div class="table__box sixth">
+  <div class="table__year"><span>2021</span></div>
+  <div class="table__title"><span>Marauder's Map</span></div>
+  <div class="table__info">
+    <span>Messrs Moony, Wormtail, Padfoot, and Prongs
+      Purveyors's trick !
+      </span>
+  </div>
+  <div class="table__security">
+    <span><i class="fas fa-map-marked-alt"></i></span>
+  </div>
+</div>
+<div class="padfoot__map visible">
+  <div class="map__container">
+    <form class="map__form">
+      <div class="map__text">
+    <span> I solemnly swear that I am up to </span><input  class="map__input" type ="text" required/><span>...</span></div>
+    <button class="lumos__btn">𝑳UMOS </button></form>
+  </div>
+  <div class="map__map map__bye" id="map"></div>
+</div>
+
+
+<!--Here starts seventh list-->
+   
+<div class="table__box seventh">
+  <div class="table__year"><span>2021</span></div>
+  <div class="table__title"><span>Hogsmeade</span></div>
+  <div class="table__info">
+    <span>Where all the magicians live in the world ?</span>
+  </div>
+  <div class="table__security">
+    <span><i class="fas fa-globe-americas"></i></i></span>
+  </div>
+</div>
+<div class="tell__country visible">
+<div class ="country__container">
+  <div class="country__header"><form><input class="country__header--input" type="text" required />
+  <button class="country__header--button">Find</button></form></div>
+  <div class="country__body">
+    <div class="country__lists">
+      <!-- <ul class="country__list">
+        <li class="country__character">Harry Potter</li>
+        <li class="country__country">FRANCE</li>
+        <li class="country__city">PARIS</li>
+      </ul> -->
+    </div>
+    <div class="country__info">
+      <div class="about__country">
+        <!-- <div class="country__flag"><img src="https://restcountries.eu/data/esp.svg"/></div>
+        <div class="country__name"><h1>Spain</h1></div>
+        <div class="country__city"><span>Madrid</span></div> -->
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!--Here starts eighth list-->
+   
+<div class="table__box eighth">
+  <div class="table__year"><span>2021</span></div>
+  <div class="table__title"><span>Burrow | Molly Weasley's kitchen</span></div>
+  <div class="table__info">
+    <span>If you want to know about all the muggles' recipes...</span>
+  </div>
+  <div class="table__security">
+    <span><i class="fas fa-utensils"></i></span>
+  </div>
+</div>
+<div class="molly__kitchen visible">
+  <div class="molly__kitchen--box">
+    <form class="molly__recipes--form">
+      <label  class="molly__recipes--label" for="choosing">Are you hungry, Harry?</label>
+      <select  required class="molly__recipes--select" id ="choosing" type="text">
+        <option value="">Very! 🧙‍♀️ </option>
+        <option value="pizza">Pizza 🍕</option>
+        <option value="fish">Sushi 🍣</option>
+        <option value="rice">Rice 🍙 </option>
+        <option value="salad">Salad 🥗</option>
+        <option value="lasagna">Lasagna 🍲</option>
+        <option value="cake">Cake 🍰</option>
+      </select>
+
+
+  </form>
+  <div class="molly__recipes--lists">
+  <div class="molly__recipes--list">
+    <div class="molly__recipes--img"><img src="#"></div>
+    <h1 class="molly__recipes--title"></h1>
+    <p class="molly__recipe--publisher"></p>
+    
+  </div>
+</div>
+  </div>
+  
+  <div class="molly__kitchen--box">
+  <div class="molly__kitchen--dinner">
+    <!-- <a class="molly__kitchen--link" href="#">Go to see actual recipe &rarr;</a> -->
+  </div>
+  </div>
+</div>
+<!--Ends-->
+
+<!--Here starts nint list-->
+   
+<div class="table__box ninth">
+  <div class="table__year"><span>2021</span></div>
+  <div class="table__title"><span>Pensieve</span></div>
+  <div class="table__info">
+    <span>Let's do an adventure to Tom Marvolo Riddle Gaunt’s memory...</span>
+  </div>
+  <div class="table__security">
+    <span><i class="fas fa-hand-sparkles"></i></span>
+  </div>
+</div>
+<div class="gaunt visible">1</div>
+
+<!--Ends-->
+
+</div>
+</div>
+<!-- <div class="spinner">
+  <i class="fas fa-spinner"></i>
+</div> -->
     </main>
+    
     <script
-      src="https://kit.fontawesome.com/6478f529f2.js"
-      crossorigin="anonymous"
+    src="https://kit.fontawesome.com/6478f529f2.js"
+    crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+  crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+  crossorigin=""></script>
     <script src="script.js"></script>
   </body>
 </html>
