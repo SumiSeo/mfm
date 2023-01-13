@@ -25,6 +25,12 @@ const tableBox = document.querySelectorAll(".table__box");
 const gringottsMovements = document.querySelector(".gringotts__movements");
 const gringottsBalance = document.querySelector(".gringotts__balance");
 const btnGringottsSort = document.querySelector(".gringotts__sort");
+const gringottsErrorBoxSavings = document.querySelector(
+  ".grintgotts__errorbox--savings"
+);
+const gringottsErrorBoxExpenses = document.querySelector(
+  ".grintgotts__errorbox--expenses"
+);
 const inputSavings = document.querySelector(".input__text--savings");
 const inputExpenses = document.querySelector(".input__text--expenses");
 const savingsbutton = document.querySelector(".input__button--savings");
@@ -188,6 +194,7 @@ displayBalance(sumi.gringottsMovements);
 const handleSavingsButton = function (e) {
   e.preventDefault();
   const amount = Number(inputSavings.value);
+  let errorMsg;
   if (amount > 0) {
     sumi.gringottsMovements.push(amount);
     displayBalance(sumi.gringottsMovements);
@@ -195,7 +202,14 @@ const handleSavingsButton = function (e) {
     displaySummary(sumi.gringottsMovements);
     inputSavings.value = "";
     setLocalStorage();
+    errorMsg = "";
+  } else {
+    //I have to display the error message
+    errorMsg = "You should put money more than 0 !";
+    gringottsErrorBoxSavings.style.color = "red";
   }
+
+  gringottsErrorBoxSavings.innerHTML = errorMsg;
 };
 
 const handleExpensesButton = function (e) {
